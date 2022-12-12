@@ -18,3 +18,5 @@ $ climc backupstorage-create [--storage-type {nfs}] [--nfs-host NFS_HOST] [--nfs
 $ climc backupstorage-create --storage-type nfs --nfs-host 192.168.1.1 --nfs-shared-dir /data/nfs --capacity-mb 100000 backupstorage
 
 ```
+
+注意：*备份存储需要被所有宿主机挂载访问。如果网络策略有限制，需要注意打开宿主机到NFS存储的访问限制*。

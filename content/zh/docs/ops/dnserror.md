@@ -87,6 +87,8 @@ IP_AUTODETECTION_METHOD 还可以配置为其他的值，可以参考 calico 官
 
 其中常用的配置可以设置成：`IP_AUTODETECTION_METHOD=kubernetes-internal-ip`，这个就会使用 K8s 节点的 Status.Addresses 作为ip-in-ip 发送的端口。
 
+calico容器网络采用ip-in-ip封装容器收发的报文，该报文需要calico通过 IP_AUTODETECTION_METHOD 环境变量探测 的 网络接口IP作为ip-in-ip报文的源和目的地址。如果因为路由原因，导致ip-in-ip报文不是经过这个网络接口收发报文，则会出现容器间网络不通的情况。这类情况一般出现在节点有多个网络接口的情况。
+
 
 ### 链路问题
 
